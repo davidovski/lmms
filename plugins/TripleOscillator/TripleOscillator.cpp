@@ -333,8 +333,8 @@ void TripleOscillator::playNote( NotePlayHandle * _n,
 		for( int i = NUM_OF_OSCILLATORS - 1; i >= 0; --i )
 		{
 
-			float phaseRandL = fastRandf( 1 ) * m_osc[i]->m_phaseRand;
-			float phaseRandR = fastRandf( 1 ) * m_osc[i]->m_phaseRand;
+			float phaseRandL = fastRand( 1.0 ) * m_osc[i]->m_phaseRand;
+			float phaseRandR = fastRand( 1.0 ) * m_osc[i]->m_phaseRand;
 
 			// the last oscs needs no sub-oscs...
 			if( i == NUM_OF_OSCILLATORS - 1 )

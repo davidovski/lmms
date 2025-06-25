@@ -43,10 +43,9 @@ PredictionDistortControlDialog::PredictionDistortControlDialog(PredictionDistort
 	setPalette(pal);
 	setFixedSize(225, 60);
 	
-	Knob* mixKnob = new Knob(KnobType::Bright26, this);
+	Knob* mixKnob = new Knob(KnobType::Bright26, tr("MIX"), this);
 	mixKnob->move(5, 8);
 	mixKnob->setModel(&controls->m_mixModel);
-	mixKnob->setLabel(tr("MIX"));
 	mixKnob->setHintText(tr("Mix:") , "");
 
 	LcdSpinBox* decayBox = new LcdSpinBox(3, this, "Amount");
