@@ -50,6 +50,7 @@ public:
 
 	QSize sizeHint() const override {return QSize(300, 300);}
 
+	Q_PROPERTY(QColor colorBackground MEMBER m_colorBackground)
 	Q_PROPERTY(QColor colorTrace MEMBER m_colorTrace)
 	Q_PROPERTY(QColor colorGrid MEMBER m_colorGrid)
 	Q_PROPERTY(QColor colorLabels MEMBER m_colorLabels)
@@ -78,6 +79,7 @@ private:
 
 	QPointF m_lastPoint = QPoint();
 
+	QColor m_colorBackground = QColor(0, 0, 0, 100);		// black
 	QColor m_colorTrace = QColor(60, 255, 130, 255);	// ~LMMS green
 	QColor m_colorGrid = QColor(76, 80, 84, 128);		// ~60 % gray (slightly cold / blue), 50 % transparent
 	QColor m_colorLabels = QColor(76, 80, 84, 255);		// ~60 % gray (slightly cold / blue)

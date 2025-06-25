@@ -72,7 +72,7 @@ void VectorView::paintEvent(QPaintEvent *event)
 	painter.setRenderHint(QPainter::Antialiasing, true);
 
 	// Paint background
-	painter.fillRect(rect(), Qt::black);
+	painter.fillRect(rect(), m_colorBackground);
 
 	const qreal widthF = qreal(width());
 	const qreal heightF = qreal(height());
