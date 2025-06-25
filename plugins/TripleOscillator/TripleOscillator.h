@@ -68,6 +68,7 @@ private:
 	FloatModel m_fineRightModel;
 	FloatModel m_phaseOffsetModel;
 	FloatModel m_stereoPhaseDetuningModel;
+	FloatModel m_phaseRandModel;
 	IntModel m_waveShapeModel;
 	IntModel m_modulationAlgoModel;
 	BoolModel m_useWaveTableModel;
@@ -85,6 +86,8 @@ private:
 	float m_phaseOffsetRight;
 	bool m_useWaveTable;
 
+	float m_phaseRand;
+
 	friend class TripleOscillator;
 	friend class gui::TripleOscillatorView;
 
@@ -97,6 +100,7 @@ private slots:
 	void updateDetuningRight();
 	void updatePhaseOffsetLeft();
 	void updatePhaseOffsetRight();
+	void updatePhaseRand();
 	void updateUseWaveTable();
 
 } ;
@@ -175,6 +179,7 @@ private:
 					Knob * fr,
 					Knob * po,
 					Knob * spd,
+					Knob * rnd,
 					PixmapButton * uwb,
 					automatableButtonGroup * wsbg,
 					PixmapButton * wt) :
@@ -185,6 +190,7 @@ private:
 			m_fineRightKnob( fr ),
 			m_phaseOffsetKnob( po ),
 			m_stereoPhaseDetuningKnob( spd ),
+			m_phaseRandKnob( rnd ),
 			m_userWaveButton( uwb ),
 			m_waveShapeBtnGrp( wsbg ),
 			m_multiBandWaveTableButton( wt )
@@ -198,6 +204,7 @@ private:
 		Knob * m_fineRightKnob;
 		Knob * m_phaseOffsetKnob;
 		Knob * m_stereoPhaseDetuningKnob;
+		Knob * m_phaseRandKnob;
 		PixmapButton * m_userWaveButton;
 		automatableButtonGroup * m_waveShapeBtnGrp;
 		PixmapButton * m_multiBandWaveTableButton;
