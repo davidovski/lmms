@@ -98,11 +98,11 @@ void GroupBox::paintEvent( QPaintEvent * pe )
 	p.fillRect( 0, 0, width() - 1, height() - 1, p.background() );
 
 	// outer rect
-	p.setPen( p.background().color().darker( 150 ) );
+	p.setPen( p.background().color() );
 	p.drawRect( 0, 0, width() - 1, height() - 1 );
 
 	// draw line below titlebar
-	p.fillRect( 1, 1, width() - 2, m_titleBarHeight + 1, p.background().color().darker( 150 ) );
+	p.fillRect( 1, 1, width() - 2, m_titleBarHeight + 1, p.background().color() );
 
 	// draw text
 	p.setPen( palette().color( QPalette::Active, QPalette::Text ) );

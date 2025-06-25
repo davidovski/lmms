@@ -67,6 +67,8 @@ class LMMS_EXPORT Fader : public QWidget, public FloatModelView
 {
 	Q_OBJECT
 public:
+	Q_PROPERTY(int channelGap MEMBER m_channelGap)
+	Q_PROPERTY(QColor backgroundColor MEMBER m_backgroundColor)
 	Q_PROPERTY(QColor peakOk MEMBER m_peakOk)
 	Q_PROPERTY(QColor peakClip MEMBER m_peakClip)
 	Q_PROPERTY(QColor peakWarn MEMBER m_peakWarn)
@@ -180,12 +182,14 @@ private:
 	 * jumping immediately to the click position.
 	 */
 	int m_knobCenterOffset {0};
+	int m_channelGap {2};
 
 	bool m_levelsDisplayedInDBFS {true};
 	bool m_modelIsLinear {false};
 
 	static SimpleTextFloat* s_textFloat;
 
+	QColor m_backgroundColor {0, 0, 0};
 	QColor m_peakOk {10, 212, 92};
 	QColor m_peakClip {193, 32, 56};
 	QColor m_peakWarn {214, 236, 82};

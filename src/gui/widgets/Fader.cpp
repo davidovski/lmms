@@ -577,8 +577,8 @@ void Fader::paintLevels(QPaintEvent* ev, QPainter& painter, bool linear)
 
 	const int height = baseRect.height();
 
-	const int margin = 1;
-	const int distanceBetweenMeters = 2;
+	const int margin = 0;
+	const int distanceBetweenMeters = m_channelGap;
 
 	const int numberOfMeters = 2;
 
@@ -599,7 +599,7 @@ void Fader::paintLevels(QPaintEvent* ev, QPainter& painter, bool linear)
 	qreal radius = 2;
 	path.addRoundedRect(leftMeterOutlineRect, radius, radius);
 	path.addRoundedRect(rightMeterOutlineRect, radius, radius);
-	painter.fillPath(path, Qt::black);
+	painter.fillPath(path, m_backgroundColor);
 
 	// Now clip everything to the paths of the meters
 	painter.setClipPath(path);
