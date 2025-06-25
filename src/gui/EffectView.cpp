@@ -69,26 +69,25 @@ EffectView::EffectView( Effect * _model, QWidget * _parent ) :
 	m_wetDry->setHintText( tr( "Wet Level:" ), "" );
 
 
-	m_autoQuit = new TempoSyncKnob(KnobType::Bright26, tr("DECAY"), this, Knob::LabelRendering::LegacyFixedFontSize);
-	m_autoQuit->move( 78 - m_autoQuit->width() / 2, 5 );
-	m_autoQuit->setEnabled( isEnabled && !effect()->m_autoQuitDisabled );
-	m_autoQuit->setHintText( tr( "Time:" ), "ms" );
+	//m_autoQuit = new TempoSyncKnob(KnobType::Bright26, tr("DECAY"), this, Knob::LabelRendering::LegacyFixedFontSize);
+	//m_autoQuit->move( 78 - m_autoQuit->width() / 2, 5 );
+	//m_autoQuit->setEnabled( isEnabled && !effect()->m_autoQuitDisabled );
+	//m_autoQuit->setHintText( tr( "Time:" ), "ms" );
 
 
-	m_gate = new Knob(KnobType::Bright26, tr("GATE"), this, Knob::LabelRendering::LegacyFixedFontSize);
-	m_gate->move( 116 - m_gate->width() / 2, 5 );
-	m_gate->setEnabled( isEnabled && !effect()->m_autoQuitDisabled );
-	m_gate->setHintText( tr( "Gate:" ), "" );
+	//m_gate = new Knob(KnobType::Bright26, tr("GATE"), this, Knob::LabelRendering::LegacyFixedFontSize);
+	//m_gate->move( 116 - m_gate->width() / 2, 5 );
+	//m_gate->setEnabled( isEnabled && !effect()->m_autoQuitDisabled );
+	//m_gate->setHintText( tr( "Gate:" ), "" );
 
 
 	setModel( _model );
 
 	if( effect()->controls()->controlCount() > 0 )
 	{
-		auto ctls_btn = new QPushButton(tr("Controls"), this);
+		auto ctls_btn = new QPushButton(embed::getIconPixmap("setup_general"), "", this);
 		QFont f = ctls_btn->font();
-		ctls_btn->setFont(adjustedToPixelSize(f, DEFAULT_FONT_SIZE));
-		ctls_btn->setGeometry( 150, 14, 50, 20 );
+		ctls_btn->setGeometry( 185, 0, 30, 30 );
 		ctls_btn->setFocusPolicy(Qt::NoFocus);
 		connect( ctls_btn, SIGNAL(clicked()),
 					this, SLOT(editControls()));
@@ -262,9 +261,9 @@ void EffectView::paintEvent( QPaintEvent * )
 	QString elidedText = p.fontMetrics().elidedText( model()->displayName(), Qt::ElideRight, width() - 22 );
 
 	p.setPen( palette().shadow().color() );
-	p.drawText( 6, 55, elidedText );
+	p.drawText( 67, 25, elidedText );
 	p.setPen( palette().text().color() );
-	p.drawText( 5, 54, elidedText );
+	p.drawText( 66, 24, elidedText );
 }
 
 
@@ -274,8 +273,8 @@ void EffectView::modelChanged()
 {
 	m_bypass->setModel( &effect()->m_enabledModel );
 	m_wetDry->setModel( &effect()->m_wetDryModel );
-	m_autoQuit->setModel( &effect()->m_autoQuitModel );
-	m_gate->setModel( &effect()->m_gateModel );
+	//m_autoQuit->setModel( &effect()->m_autoQuitModel );
+	//m_gate->setModel( &effect()->m_gateModel );
 }
 
 } // namespace lmms::gui

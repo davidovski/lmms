@@ -62,7 +62,7 @@ public:
 	}
 
 	static constexpr int DEFAULT_WIDTH = 215;
-	static constexpr int DEFAULT_HEIGHT = 60;
+	static constexpr int DEFAULT_HEIGHT = 30;
 	
 	void mouseMoveEvent(QMouseEvent* event) override;
 	void mousePressEvent(QMouseEvent* event) override;
@@ -91,8 +91,8 @@ private:
 	QPixmap m_bg;
 	LedCheckBox * m_bypass;
 	Knob * m_wetDry;
-	TempoSyncKnob * m_autoQuit;
-	Knob * m_gate;
+	//TempoSyncKnob * m_autoQuit;
+	//Knob * m_gate;
 	QMdiSubWindow * m_subWindow;
 	EffectControlDialog * m_controlView;
 	
