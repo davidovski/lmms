@@ -137,6 +137,7 @@ void LcdWidget::setTextShadowColor( const QColor & c )
 void LcdWidget::paintEvent( QPaintEvent* )
 {
 	QPainter p( this );
+	p.fillRect( rect(), m_backgroundColor );
 
 	QSize cellSize( m_cellWidth, m_cellHeight );
 

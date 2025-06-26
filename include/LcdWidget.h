@@ -40,6 +40,7 @@ class LMMS_EXPORT LcdWidget : public QWidget
 	// theming qproperties
 	Q_PROPERTY( QColor textColor READ textColor WRITE setTextColor )
 	Q_PROPERTY( QColor textShadowColor READ textShadowColor WRITE setTextShadowColor )
+	Q_PROPERTY( QColor backgroundColor MEMBER m_backgroundColor )
 	
 public:
 	explicit LcdWidget(QWidget* parent, const QString& name = QString(), bool leadingZero = false);
@@ -100,6 +101,7 @@ private:
 
 	QColor m_textColor;
 	QColor m_textShadowColor;
+	QColor m_backgroundColor {0, 0, 0};
 
 	int m_cellWidth;
 	int m_cellHeight;

@@ -38,6 +38,8 @@ class LMMS_EXPORT ComboBox : public QWidget, public IntModelView
 {
 	Q_OBJECT
 public:
+	Q_PROPERTY(QColor backgroundColor MEMBER m_backgroundColor)
+
 	ComboBox( QWidget* parent = nullptr, const QString& name = QString() );
 	~ComboBox() override = default;
 
@@ -66,6 +68,7 @@ protected:
 
 
 private:
+	QColor m_backgroundColor {0, 0, 0};
 	QPixmap m_background = embed::getIconPixmap("combobox_bg");
 	QPixmap m_arrow = embed::getIconPixmap("combobox_arrow");
 	QPixmap m_arrowSelected = embed::getIconPixmap("combobox_arrow_selected");

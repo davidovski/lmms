@@ -58,7 +58,7 @@ class TrackContainerView;
  * display.  This sets the minimum size in pixels for a track.
  */
 const int MINIMAL_TRACK_HEIGHT = 32;
-const int DEFAULT_TRACK_HEIGHT = 32;
+const int DEFAULT_TRACK_HEIGHT = 64;
 
 char const *const FILENAME_FILTER = "[\\0000-\x1f\"*/:<>?\\\\|\x7f]";
 

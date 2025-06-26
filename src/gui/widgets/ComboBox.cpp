@@ -164,20 +164,21 @@ void ComboBox::paintEvent( QPaintEvent * _pe )
 {
 	QPainter p( this );
 
+	p.fillRect( rect(), m_backgroundColor );
 	p.fillRect(2, 2, width() - 2, height() - 4, m_background);
 
-	QColor shadow = palette().shadow().color();
-	QColor highlight = palette().highlight().color();
+	//QColor shadow = palette().shadow().color();
+	//QColor highlight = palette().highlight().color();
 
-	shadow.setAlpha( 124 );
-	highlight.setAlpha( 124 );
+	//shadow.setAlpha( 124 );
+	//highlight.setAlpha( 124 );
 
 	// button-separator
-	p.setPen( shadow );
-	p.drawLine( width() - CB_ARROW_BTN_WIDTH - 1, 1, width() - CB_ARROW_BTN_WIDTH - 1, height() - 3 );
+	//p.setPen( shadow );
+	//p.drawLine( width() - CB_ARROW_BTN_WIDTH - 1, 1, width() - CB_ARROW_BTN_WIDTH - 1, height() - 3 );
 
-	p.setPen( highlight );
-	p.drawLine( width() - CB_ARROW_BTN_WIDTH, 1, width() - CB_ARROW_BTN_WIDTH, height() - 3 );
+	//p.setPen( highlight );
+	//p.drawLine( width() - CB_ARROW_BTN_WIDTH, 1, width() - CB_ARROW_BTN_WIDTH, height() - 3 );
 
 	// Border
 	QStyleOptionFrame opt;
