@@ -38,14 +38,13 @@ namespace lmms
 {
 
 
-class NotePlayHandle;
-class SampleBuffer;
+class NotePlayHandle;  // IWYU pragma: keep
 class Oscillator;
 
 
 namespace gui
 {
-class automatableButtonGroup;
+class AutomatableButtonGroup;
 class Knob;
 class PixmapButton;
 class TripleOscillatorView;
@@ -167,8 +166,8 @@ public:
 private:
 	void modelChanged() override;
 
-	automatableButtonGroup * m_mod1BtnGrp;
-	automatableButtonGroup * m_mod2BtnGrp;
+	AutomatableButtonGroup * m_mod1BtnGrp;
+	AutomatableButtonGroup * m_mod2BtnGrp;
 
 	struct OscillatorKnobs
 	{
@@ -181,7 +180,7 @@ private:
 					Knob * spd,
 					Knob * rnd,
 					PixmapButton * uwb,
-					automatableButtonGroup * wsbg,
+					AutomatableButtonGroup * wsbg,
 					PixmapButton * wt) :
 			m_volKnob( v ),
 			m_panKnob( p ),
@@ -206,7 +205,7 @@ private:
 		Knob * m_stereoPhaseDetuningKnob;
 		Knob * m_phaseRandKnob;
 		PixmapButton * m_userWaveButton;
-		automatableButtonGroup * m_waveShapeBtnGrp;
+		AutomatableButtonGroup * m_waveShapeBtnGrp;
 		PixmapButton * m_multiBandWaveTableButton;
 
 	} ;
