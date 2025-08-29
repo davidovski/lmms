@@ -24,17 +24,14 @@
 
 #include "Editor.h"
 
+#include <QAction>
+#include <QShortcut>
+
 #include "DeprecationHelper.h"
 #include "GuiApplication.h"
 #include "MainWindow.h"
 #include "Song.h"
-
 #include "embed.h"
-
-#include <QAction>
-#include <QShortcut>
-#include <QCloseEvent>
-
 
 namespace lmms::gui
 {
@@ -92,6 +89,7 @@ void Editor::toggleMaximize()
 }
 
 Editor::Editor(bool record, bool stepRecord) :
+	DetachableWindow(),
 	m_toolBar(new DropToolBar(this)),
 	m_playAction(nullptr),
 	m_recordAction(nullptr),
