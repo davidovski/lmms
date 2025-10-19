@@ -745,7 +745,7 @@ void InstrumentTrackWindow::updateSubWindow()
 
 		const auto instrumentViewResizable = m_instrumentView->isResizable();
 
-		if (instrumentViewResizable)
+		if (false)
 		{
 			// TODO As of writing SlicerT is the only resizable instrument. Is this code specific to SlicerT?
 			const auto extraSpace = QSize(12, 208);

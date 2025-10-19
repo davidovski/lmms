@@ -425,11 +425,7 @@ void CompressorControlDialog::drawVisPixmap()
 	m_p.begin(&m_visPixmap);
 
 	// Move entire display to the left
-	m_p.setCompositionMode(QPainter::CompositionMode_Source);
-	m_p.drawPixmap(-m_compPixelMovement, 0, m_visPixmap);
-	m_p.fillRect(m_windowSizeX-m_compPixelMovement, 0, m_windowSizeX, m_windowSizeY, QColor("transparent"));
-	m_p.setCompositionMode(QPainter::CompositionMode_SourceOver);
-
+	m_visPixmap.scroll(-m_compPixelMovement, 0, QRect(0, 0, m_windowSizeX + m_compPixelMovement + 1, m_windowSizeY));
 	m_p.setRenderHint(QPainter::Antialiasing, true);
 
 	// Draw translucent portion of input volume line
@@ -785,7 +781,8 @@ void CompressorControlDialog::resetCompressorView()
 	// content that the visualizer will display
 	// later on won't look too ugly
 	m_p.setPen(QPen(m_resetColor, 3));
-	m_p.drawLine(m_windowSizeX, 0, m_windowSizeX, m_windowSizeY);
+	m_p.drawLine(m_windowSizeX - 1, 0, m_windowSizeX - 1, m_windowSizeY);
+
 
 	m_p.end();
 

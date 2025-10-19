@@ -163,7 +163,13 @@ void SubWindow::changeEvent( QEvent *event )
 
 void SubWindow::showEvent(QShowEvent* e)
 {
-	attach();
+	if (widget()->isHidden()) {
+		attach();
+	}
+	detach();
+
+	widget()->activateWindow();
+	widget()->raise();
 	QMdiSubWindow::showEvent(e);
 }
 
@@ -274,9 +280,11 @@ void SubWindow::detach()
 	auto flags = windowFlags();
 	flags |= Qt::Window;
 	flags &= ~Qt::Widget;
+
 	widget()->setWindowFlags(flags);
 	widget()->show();
 	hide();
+
 
 	widget()->windowHandle()->setPosition(pos);
 }
@@ -297,12 +305,17 @@ void SubWindow::attach()
 
 	auto frame = widget()->windowHandle()->frameGeometry();
 
+	const auto pos = mapFromGlobal(widget()->windowHandle()->position());
+
 	auto flags = windowFlags();
 	flags &= ~Qt::Window;
 	flags |= Qt::Widget;
+
 	widget()->setWindowFlags(flags);
 	widget()->show();
 	show();
+
+	widget()->move(pos);
 
 	// Delay moving & resizing using event queue. Ensures that this widget is
 	// visible first, so that resizing works.
